@@ -13,5 +13,5 @@ pod 'changecolor' , '~> 0.1.3'
 
 properties :
 
-corner radius change
-change speed of changing color animation
+ - corner radius change
+ - change speed of changing color animation
