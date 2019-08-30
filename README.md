@@ -9,3 +9,9 @@ pod 'changecolor' , '~> 0.1.3'
 [
 ![Uploading 399s8c.gif…]()
 ](url)
+
+
+properties :
+
+corner radius change
+change speed of changing color animation
