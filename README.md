@@ -4,3 +4,8 @@ Automatically change color theme that can be used for information screen on your
 pod 'changecolor' , '~> 0.1.3' 
 
 ![Uploading Screen Shot 2019-08-30 at 6.16.24 PM.png…]()
+
+
+[
+![Uploading 399s8c.gif…]()
+](url)
