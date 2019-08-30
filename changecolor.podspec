@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'changecolor'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = 'Automatically change color theme that can be used for information screen on your application.'
  
 

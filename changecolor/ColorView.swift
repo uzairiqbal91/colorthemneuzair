@@ -1,47 +1,65 @@
-//
-//  ColorView.swift
-//  changecolor
-//
-//  Created by Basit on 8/30/19.
-//  Copyright © 2019 Uzair. All rights reserved.
-//
-
 import UIKit
-
+@IBDesignable
 class ColorView: UIView {
-
+    
     
     let colors : [UIColor] = [.red, .orange, .yellow, .green, .blue, .purple]
     var colorCounter = 0
-    override init(frame: CGRect) {
+    var timer = 2.0
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         
-        let scheduledColorChanged = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: true) { (timer) in  //1
+        
+        setup()
+        // The Main Stuff
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        setup()
+        // You don't need to implement this
+    }
+    
+    func setup()
+    {
+        let scheduledColorChanged = Timer.scheduledTimer(withTimeInterval: timer, repeats: true) { (timer) in  //1
             UIView.animate(withDuration: 2.0) {  //2
                 self.layer.backgroundColor = self.colors[self.colorCounter % 6].cgColor  //3
                 self.colorCounter+=1  //4
             }
-        }   
+        }
         
         scheduledColorChanged.fire()
         
-        // The Main Stuff
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        
-        // You don't need to implement this
+    @IBInspectable
+    public var cornerRadius: CGFloat = 2.0 {
+        didSet {
+            self.layer.cornerRadius = self.cornerRadius
+        }
     }
+    
+    @IBInspectable
+    public var spped: CGFloat = 2.0 {
+        didSet {
+            
+            self.timer = Double(self.spped)
+            setup()
+        }
+    }
+    
+    
     
     
     
     /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
-
+     // Only override draw() if you perform custom drawing.
+     // An empty implementation adversely affects performance during animation.
+     override func draw(_ rect: CGRect) {
+     // Drawing code
+     }
+     */
+    
 }
